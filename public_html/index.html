@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="pt-br" ng-app="conteudo">
+    <head>
+        <title>Conteúdo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- AngularJS -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        
+        <link rel="stylesheet" href="style.css">
+        <script src="content.js"></script>
+    </head>
+    <body id="1" ng-controller="conteudoCtrl" data-spy="scroll" data-target=".navbar" data-offset="50">
+              
+        <!-- Navigation bar (MENU) -->
+        <!--<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-justified">
+                        <li><a href="#1">Biológicas</a></li>
+                        <li><a href="#2">Exatas</a></li>
+                        <li><a href="#3">Humanas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>-->
+        
+        <!-- BARRA DE NAVEGAÇÃO (SUBMENU) -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <ul class="nav nav-tabs nav-justified" >
+                    <li><a class="nav-bt" href="#" ng-click="addFilter('Biológicas')" >Biológicas</a></li>
+                    <li><a class="nav-bt" href="#" ng-click="addFilter('Exatas')" >Exatas</a></li>
+                    <li><a class="nav-bt" href="#" ng-click="addFilter('Humanas')" >Humanas</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- BARRA DE PESQUISA -->
+        <div class="jumbotron search-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group" id="adv-search">
+                            <input type="text" class="form-control" value="{{searchFilter}}" placeholder="Procure um professor, disciplina ou curso" />
+                            <div class="input-group-btn">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>       
+        
+        <div id="info" class="container text-center">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="#demo" data-toggle="collapse">
+                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 1">
+                    </a>
+                    <div id="demo" class="collapse">
+                        <p>Bio 2</p>
+                        <p>Habilidades e outras informações interessantes</p>
+                        <p>Informações sucintas e específicas</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#demo2" data-toggle="collapse">
+                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 2">
+                    </a>
+                    <div id="demo2" class="collapse">
+                        <p>Bio 2</p>
+                        <p>Habilidades e outras informações interessantes</p>
+                        <p>Informações sucintas e específicas</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#demo3" data-toggle="collapse">
+                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 3">
+                    </a>
+                    <div id="demo3" class="collapse">
+                        <p>Bio 3</p>
+                        <p>Habilidades e outras informações interessantes</p>
+                        <p>Informações sucintas e específicas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="#demo4" data-toggle="collapse">
+                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 4">
+                    </a>
+                    <div id="demo4" class="collapse">
+                        <p>Bio 4</p>
+                        <p>Habilidades e outras informações interessantes</p>
+                        <p>Informações sucintas e específicas</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#demo5" data-toggle="collapse">
+                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 5">
+                    </a>
+                    <div id="demo5" class="collapse">
+                        <p>Bio 5</p>
+                        <p>Habilidades e outras informações interessantes</p>
+                        <p>Informações sucintas e específicas</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#demo6" data-toggle="collapse">
+                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 5">
+                    </a>
+                    <div id="demo6" class="collapse">
+                        <p>Bio 6</p>
+                        <p>Habilidades e outras informações interessantes</p>
+                        <p>Informações sucintas e específicas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-2" ng-repeat="professor in Exatas">
+                    <button class="btn btn-primary">{{professor.disciplina}}</button>
+                </div>
+            </div>
+        </div>       
+        
+        <nav id="3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices lobortis pellentesque. Aliquam non ex eros. Nunc et augue rhoncus sapien dictum sagittis. Donec rutrum, augue et convallis luctus, augue nulla finibus velit, ac auctor velit turpis convallis risus. Donec pretium congue mauris, vulputate auctor lorem volutpat in. Mauris porttitor lectus quis metus varius, ut ullamcorper mi condimentum. Aliquam consequat nulla non mauris tempor, non tincidunt lorem suscipit. Aenean iaculis sodales lectus, sed semper risus tincidunt quis. Donec vel ultrices eros. Duis eu nibh sit amet dolor tincidunt feugiat. Nulla porttitor orci turpis. Vivamus dictum pharetra nisl sit amet euismod. Sed sit amet sem quis elit finibus ultricies a nec lacus. Pellentesque molestie hendrerit mi, vel fringilla felis malesuada ac.</p>
+            <p>Fusce lorem est, iaculis vitae ante quis, aliquet ultricies sapien. Nullam tempor justo lectus, id ultrices augue malesuada bibendum. Duis mattis dui at pretium volutpat. In facilisis dui id laoreet aliquet. Proin porttitor accumsan libero et pellentesque. Aenean arcu justo, gravida sit amet pellentesque eu, interdum eget ex. Nam rhoncus sapien metus, ac fermentum lacus pellentesque sed. In eget condimentum dui.</p>
+            <p>Nunc imperdiet, lacus eget pretium pellentesque, ipsum diam vulputate tellus, vel pellentesque sapien velit in elit. Phasellus est sapien, interdum sit amet nisi eleifend, lacinia feugiat est. Nam pulvinar augue at ex sodales blandit. Pellentesque accumsan a felis vel consectetur. Suspendisse potenti. Nunc enim enim, convallis quis ex ut, pharetra hendrerit mi. Nulla dui purus, vulputate eu maximus non, scelerisque vitae dolor. Aliquam bibendum felis tortor, in volutpat odio tempus in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean porta nibh sit amet velit efficitur, a pretium turpis aliquet. Nulla elit nibh, dapibus sed rutrum volutpat, placerat sit amet lectus.</p>
+            <p>Praesent vel velit eget nisi pretium luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis auctor lorem. Fusce sagittis orci tincidunt, blandit nisl at, accumsan erat. Proin rutrum orci vitae enim cursus elementum. Aenean fringilla pellentesque ipsum, ut eleifend sapien. Proin accumsan dictum odio, lobortis hendrerit massa dapibus sit amet.</p>
+            <p>Duis ut arcu vitae turpis condimentum commodo. Mauris sit amet imperdiet nibh. In sed lorem quam. Phasellus facilisis dui sit amet scelerisque lobortis. Mauris consequat metus dui. Sed ornare ex bibendum lectus dapibus, eget rutrum libero dignissim. Praesent fringilla velit ac posuere egestas. Nulla molestie arcu dui, non malesuada neque eleifend id. Phasellus ornare et nunc nec fermentum. Praesent vitae dolor justo. Vivamus ac nibh tristique, sollicitudin libero in, mattis augue. Nulla maximus dictum dui, a malesuada ex pretium fringilla. Nam venenatis placerat velit, eu porta purus egestas ac. Morbi at fringilla sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc suscipit condimentum lobortis.</p>
+        </nav>
+    </body>
+</html>
