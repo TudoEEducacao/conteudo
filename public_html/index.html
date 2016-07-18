@@ -44,12 +44,13 @@ and open the template in the editor.
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-
-                <ul class="nav nav-tabs nav-justified" >
-                    <li><a class="nav-bt" href="#" ng-click="addFilter('Biológicas')" >Biológicas</a></li>
-                    <li><a class="nav-bt" href="#" ng-click="addFilter('Exatas')" >Exatas</a></li>
-                    <li><a class="nav-bt" href="#" ng-click="addFilter('Humanas')" >Humanas</a></li>
-                </ul>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav nav-tabs nav-justified" >
+                        <li><a class="nav-bt" href="#" ng-click="addFilter('Biológicas')" >Biológicas</a></li>
+                        <li><a class="nav-bt" href="#" ng-click="addFilter('Exatas')" >Exatas</a></li>
+                        <li><a class="nav-bt" href="#" ng-click="addFilter('Humanas')" >Humanas</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
@@ -70,78 +71,103 @@ and open the template in the editor.
                 </div>
             </div> 
         </div>       
-        
+
         <div id="info" class="container text-center">
             <div class="row">
-                <div class="col-sm-4">
-                    <a href="#demo" data-toggle="collapse">
-                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 1">
-                    </a>
-                    <div id="demo" class="collapse">
-                        <p>Bio 2</p>
+                <div ng-repeat="Professor in FilteredData">
+                    <div class="col-sm-4 nopadding" >
+                        <div class="col-sm-4">
+                            <a href="{{Professor.link}}">
+                                <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>{{Professor.nome}}</h4>
+                            <p>{{Professor.disciplina}}</p>
+                            <p>{{Professor.interesse}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--
+                <div class="col-sm-4 nopadding" style="background-color: crimson">
+                    <div class="col-sm-4">
+                        <a href="#demo2">
+                            <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Nome Professor</p>
                         <p>Habilidades e outras informações interessantes</p>
                         <p>Informações sucintas e específicas</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <a href="#demo2" data-toggle="collapse">
-                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 2">
-                    </a>
-                    <div id="demo2" class="collapse">
-                        <p>Bio 2</p>
-                        <p>Habilidades e outras informações interessantes</p>
-                        <p>Informações sucintas e específicas</p>
+
+                <div class="col-sm-4 nopadding" style="background-color: chocolate">
+                    <div class="col-sm-4">
+                        <a href="#demo3">
+                            <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                        </a>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <a href="#demo3" data-toggle="collapse">
-                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 3">
-                    </a>
-                    <div id="demo3" class="collapse">
-                        <p>Bio 3</p>
+                    <div class="col-sm-6">
+                        <p>Nome Professor</p>
                         <p>Habilidades e outras informações interessantes</p>
                         <p>Informações sucintas e específicas</p>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-sm-4">
-                    <a href="#demo4" data-toggle="collapse">
-                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 4">
-                    </a>
-                    <div id="demo4" class="collapse">
-                        <p>Bio 4</p>
+                <div class="col-sm-4 nopadding" style="background-color: cornflowerblue">
+                    <div class="col-sm-4">
+                        <a href="#demo1">
+                            <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>André Felipe Oliveira Dantas</h4>
                         <p>Habilidades e outras informações interessantes</p>
                         <p>Informações sucintas e específicas</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <a href="#demo5" data-toggle="collapse">
-                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 5">
-                    </a>
-                    <div id="demo5" class="collapse">
-                        <p>Bio 5</p>
+
+                <div class="col-sm-4 nopadding" style="background-color: crimson">
+                    <div class="col-sm-4">
+                        <a href="#demo2">
+                            <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Nome Professor</p>
                         <p>Habilidades e outras informações interessantes</p>
                         <p>Informações sucintas e específicas</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <a href="#demo6" data-toggle="collapse">
-                        <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional 5">
-                    </a>
-                    <div id="demo6" class="collapse">
-                        <p>Bio 6</p>
+
+                <div class="col-sm-4 nopadding" style="background-color: chocolate">
+                    <div class="col-sm-4">
+                        <a href="#demo3">
+                            <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Nome Professor</p>
                         <p>Habilidades e outras informações interessantes</p>
                         <p>Informações sucintas e específicas</p>
                     </div>
                 </div>
+                -->
             </div>
         </div>
-
-         <div class="jumbotron">
-            <div class="row">
-                <div class="col-sm-2" ng-repeat="professor in Exatas">
-                    <button class="btn btn-primary">{{professor.disciplina}}</button>
+        <br>
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row center-eff">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Exatas" ng-click="addFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
+                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Bio" ng-click="addFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
+                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Humanas" ng-click="addFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
+                    </div>
                 </div>
             </div>
         </div>       
