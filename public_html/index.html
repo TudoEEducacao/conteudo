@@ -52,9 +52,9 @@ and open the template in the editor.
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav nav-tabs nav-justified" >
-                        <li><a class="nav-bt" href="#" ng-click="addFilter('Biológicas')" >Biológicas</a></li>
-                        <li><a class="nav-bt" href="#" ng-click="addFilter('Exatas')" >Exatas</a></li>
-                        <li><a class="nav-bt" href="#" ng-click="addFilter('Humanas')" >Humanas</a></li>
+                        <li><a class="nav-bt" href="#" ng-click="addInteresseFilter('Biológicas')" >Biológicas</a></li>
+                        <li><a class="nav-bt" href="#" ng-click="addInteresseFilter('Exatas')" >Exatas</a></li>
+                        <li><a class="nav-bt" href="#" ng-click="addInteresseFilter('Humanas')" >Humanas</a></li>
                     </ul>
                 </div>
             </div>
@@ -78,37 +78,86 @@ and open the template in the editor.
             </div> 
         </div>       
 
-        <div id="info" class="container text-center">
+        <div id="info" class="container">
             <div class="row">
-                <div ng-repeat="Professor in FilteredData">
-                    <div class="col-sm-4 nopadding" >
-                        <div class="col-sm-4">
-                            <a href="{{Professor.link}}">
-                                <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
-                            </a>
+                <div ng-repeat="Professor in FilteredData" >
+<!--                    <div class="visible-xs text-center">
+                        <div class="col-sm-4 container-fluid">
+                            <div class="col-sm-4 pull-left">
+                                <a href="{{Professor.link}}" data-toggle="modal" data-target="#modal{{Professor.nome}}">
+                                    <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                                </a>
+                            </div>
+                            <div class="col-sm-4 center-block">
+                                <h4>{{Professor.nome}}</h4>
+                                <p>{{Professor.disciplina}}</p>
+                                <p>{{Professor.interesse}}</p>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <h4>{{Professor.nome}}</h4>
-                            <p>{{Professor.disciplina}}</p>
-                            <p>{{Professor.interesse}}</p>
+                    </div>-->
+                    
+                    <div class="text-center">
+                        <div class="col-sm-4 container-fluid">
+                            <div class="col-sm-4 pull-left">
+                                <a href="{{Professor.link}}" data-toggle="modal" data-target="#modal{{Professor.nome}}">
+                                    <img src="https://goo.gl/TBvstA" class="img-circle person" alt="Profissional">
+                                </a>
+                            </div>
+                            <div class="visible-xs">
+                                <div class="col-sm-4 center-block">
+                                    <h4>{{Professor.nome}}</h4>
+                                    <p>{{Professor.disciplina}}</p>
+                                    <p>{{Professor.interesse}}</p>
+                                </div>
+                            </div>
+                            <div class="hidden-xs">
+                                <div class="col-sm-4 pull-left">
+                                    <h4>{{Professor.nome}}</h4>
+                                    <p>{{Professor.disciplina}}</p>
+                                    <p>{{Professor.interesse}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- MODAL -->
+                    <div id="modal{{Professor.nome}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            
+                            <!-- Content -->
+                            <div class="model-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">{{Professor.nome}}</h4>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                                <div class="modal-body">
+                                    <p>{{Professor.interesse}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <br>
+        
+        <!--Disciplinas-->
         <div class="jumbotron">
             <div class="container">
                 <div class="row center-eff">
                     <div class="col-sm-12">
-                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Exatas" ng-click="addFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
-                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Bio" ng-click="addFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
-                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Humanas" ng-click="addFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
+                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Exatas" ng-click="addDisciplinaFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
+                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Bio" ng-click="addDisciplinaFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
+                        <button class="btn btn-primary grade"  ng-repeat="disciplina in Humanas" ng-click="addDisciplinaFilter(disciplina.disciplina)">{{disciplina.disciplina}}</button>
                     </div>
                 </div>
             </div>
         </div>       
-        
+
         <nav id="3">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices lobortis pellentesque. Aliquam non ex eros. Nunc et augue rhoncus sapien dictum sagittis. Donec rutrum, augue et convallis luctus, augue nulla finibus velit, ac auctor velit turpis convallis risus. Donec pretium congue mauris, vulputate auctor lorem volutpat in. Mauris porttitor lectus quis metus varius, ut ullamcorper mi condimentum. Aliquam consequat nulla non mauris tempor, non tincidunt lorem suscipit. Aenean iaculis sodales lectus, sed semper risus tincidunt quis. Donec vel ultrices eros. Duis eu nibh sit amet dolor tincidunt feugiat. Nulla porttitor orci turpis. Vivamus dictum pharetra nisl sit amet euismod. Sed sit amet sem quis elit finibus ultricies a nec lacus. Pellentesque molestie hendrerit mi, vel fringilla felis malesuada ac.</p>
             <p>Fusce lorem est, iaculis vitae ante quis, aliquet ultricies sapien. Nullam tempor justo lectus, id ultrices augue malesuada bibendum. Duis mattis dui at pretium volutpat. In facilisis dui id laoreet aliquet. Proin porttitor accumsan libero et pellentesque. Aenean arcu justo, gravida sit amet pellentesque eu, interdum eget ex. Nam rhoncus sapien metus, ac fermentum lacus pellentesque sed. In eget condimentum dui.</p>
