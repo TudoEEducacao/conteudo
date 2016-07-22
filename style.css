@@ -56,11 +56,23 @@ and open the template in the editor.
 .person:hover {
     border-color: #f1f1f1;
 }
-.nopadding {
-    padding: 0 !important;
-    margin: 0 !important;
+.teste {
+    
 }
-
+@media screen and (max-device-width : 768px)
+{
+  .screen-text
+  {
+    text-align: right;
+  }
+}
+@media screen and (min-device-width : 768px)
+{
+  .screen-text
+  {
+    text-align: center;
+  }
+}
 /*========================================*/
 .btn-group .btn {
     border-radius: 0;
